@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiv Shanker — Digital Banking Transformation Leader</title>
+<meta name="description" content="Senior Manager & Product Owner specializing in Digital Banking Transformation, Payments, AML/KYC, and Vision 2030 initiatives across Saudi Arabia and the Gulf.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  /* ── DARK MODE (default) ── */
+  :root, [data-theme="dark"] {
+    --gold: #C9A84C;
+    --gold-dim: rgba(201,168,76,0.15);
+    --ink: #080808;
+    --surface: #111111;
+    --surface2: #1a1a1a;
+    --text: #E8E0D0;
+    --muted: #888880;
+    --border: rgba(255,255,255,0.07);
+    --nav-bg: rgba(8,8,8,0.88);
+    --hero-word: rgba(255,255,255,0.018);
+    --toggle-bg: #222;
+    --toggle-icon: '☀️';
+  }
+
+  /* ── LIGHT MODE ── */
+  [data-theme="light"] {
+    --gold: #A07820;
+    --gold-dim: rgba(160,120,32,0.12);
+    --ink: #F5F2EC;
+    --surface: #EDEAE2;
+    --surface2: #E4E0D6;
+    --text: #1A1612;
+    --muted: #6B6560;
+    --border: rgba(0,0,0,0.1);
+    --nav-bg: rgba(245,242,236,0.92);
+    --hero-word: rgba(0,0,0,0.04);
+    --toggle-bg: #ddd;
+    --toggle-icon: '🌙';
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+
+  /* NOISE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 4rem;
+    background: var(--nav-bg);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.4s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* DARK/LIGHT TOGGLE */
+  .theme-toggle {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background: var(--toggle-bg);
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.4s ease;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+  }
+
+  .theme-toggle-knob {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transform: translateX(0);
+  }
+
+  [data-theme="light"] .theme-toggle-knob {
+    transform: translateX(24px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: 'TRANSFORM';
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22vw;
+    color: var(--hero-word);
+    bottom: -2vw; right: -2vw;
+    pointer-events: none;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 0.2s;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 9vw, 9rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 0.4s;
+  }
+
+  .hero-name span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero-tagline {
+    margin-top: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 560px;
+    line-height: 1.8;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 0.6s;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 0.8s;
+  }
+
+  .btn {
+    padding: 0.85rem 2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: #080808;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background: #E8C97A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.3);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    margin-top: 5rem;
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: rise 0.9s ease forwards 1s;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 4rem;
+    border-top: 1px solid var(--border);
+    transition: background 0.4s ease;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+
+  .highlight-item {
+    padding: 1.4rem 1.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    transition: background 0.3s;
+  }
+
+  .highlight-item:hover { background: var(--surface2); }
+
+  .highlight-item h4 {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .highlight-item p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── EXPERTISE ── */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .expertise-card {
+    background: var(--surface);
+    padding: 2.5rem;
+    transition: background 0.3s, transform 0.3s;
+    cursor: default;
+  }
+
+  .expertise-card:hover { background: var(--surface2); transform: translateY(-4px); }
+
+  .expertise-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+
+  .expertise-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .expertise-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 2rem; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 3.5rem 2.5rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -4px; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(201,168,76,0.5);
+  }
+
+  .timeline-period {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-company { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+
+  .timeline-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+
+  .timeline-tag {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0.6rem 0.3rem 0 0;
+    border-radius: 2px;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .cert-card:hover { border-color: var(--gold); background: var(--surface2); }
+
+  .cert-icon {
+    width: 36px; height: 36px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  .cert-name { font-size: 0.82rem; line-height: 1.5; color: var(--text); }
+
+  /* ── CONTACT ── */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .contact-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-left h2 em { font-style: italic; color: var(--gold); }
+
+  .contact-left p { font-size: 0.95rem; color: var(--muted); line-height: 1.9; }
+
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.3s;
+  }
+
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); transform: translateX(6px); }
+
+  .contact-link-icon { width: 32px; text-align: center; font-size: 1.1rem; color: var(--gold); }
+
+  .contact-link-text { font-size: 0.88rem; }
+
+  .contact-link-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.4s;
+  }
+
+  footer p { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    .hero, section { padding-left: 2rem; padding-right: 2rem; }
+    .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .expertise-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 7rem 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .expertise-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">S · S</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Credentials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- TOGGLE BUTTON -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+      <div class="theme-toggle-knob" id="toggleKnob">🌙</div>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">Digital Banking Transformation Leader</div>
+  <h1 class="hero-name">
+    Shiv<br>
+    <span>Shanker</span>
+  </h1>
+  <p class="hero-tagline">
+    Lead Business Analyst &amp; Product Owner driving large-scale digital banking modernization across Saudi Arabia, the Gulf, and beyond — 19 years · SNB · Mashreq · Vodafone UK · SBI Remit Japan · Sanofi.
+  </p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+    <a href="https://www.linkedin.com/in/shiv-shanker" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
+    <a href="manifesto.pdf" target="_blank" class="btn btn-outline">📄 Read My Manifesto</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-val">19+</span><span class="stat-label">Years Experience</span></div>
+    <div class="stat"><span class="stat-val">40–50%</span><span class="stat-label">TAT Reduction Delivered</span></div>
+    <div class="stat"><span class="stat-val">10+</span><span class="stat-label">Banks Integrated</span></div>
+    <div class="stat"><span class="stat-val">50%+</span><span class="stat-label">Compliance Time Saved</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a <strong>Digital Banking &amp; Transformation Leader</strong> with over 19 years of experience delivering large-scale initiatives across Customer Onboarding, Payments, AML/KYC, and Regulatory Compliance.</p>
+      <p>I have led mission-critical programs for <strong>Saudi National Bank (SNB)</strong>, <strong>Mashreq Bank</strong>, <strong>Vodafone UK</strong>, <strong>SBI Remit Japan</strong>, and <strong>Sanofi</strong> — consistently delivering <strong>40–50% reductions in turnaround time</strong> and 50%+ compliance savings.</p>
+      <p>My Mashreq journey spans over a decade across three contexts — WNS operations, direct employment, and TCS consulting — giving me unmatched depth in Gulf banking transformation.</p>
+      <p>Based in <strong>Jeddah, Saudi Arabia</strong>, I am open to senior leadership opportunities aligned with <strong>Vision 2030</strong> across the Gulf region.</p>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-item">
+        <h4>Current Location</h4>
+        <p>Jeddah, Saudi Arabia</p>
+      </div>
+      <div class="highlight-item">
+        <h4>Current Role</h4>
+        <p>Lead Business Analyst / Product Owner — Tata Consultancy Services (SNB · Vodafone UK · SBI Remit Japan · Sanofi · Mashreq)</p>
+      </div>
+      <div class="highlight-item">
+        <h4>Frameworks &amp; Tools</h4>
+        <p>Agile · SAFe 6 · Scrum · Lean Six Sigma · IBM BPM · RPA · ServiceNow · Flexcube · SWIFT</p>
+      </div>
+      <div class="highlight-item">
+        <h4>Open To</h4>
+        <p>Senior leadership roles in Digital Banking, Payments, Compliance Transformation, and Vision 2030 programs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Core Expertise</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="expertise-grid reveal">
+    <div class="expertise-card">
+      <span class="expertise-icon">🏦</span>
+      <h3>Digital Banking &amp; Payments</h3>
+      <p>Led Neo, Quick Pay, and mobile banking transformation for SNB. Expertise in branchless banking, open banking, and payment platform modernization.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="expertise-icon">🛡️</span>
+      <h3>AML / KYC &amp; Compliance</h3>
+      <p>Deep expertise in AML, KYC, FATCA, CRS, SAMA regulations, and Islamic banking compliance. Acted as first line of defence for operational risk and audit readiness.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="expertise-icon">⚙️</span>
+      <h3>Automation &amp; BPM</h3>
+      <p>Delivered IBM BPM, RPA, OCR, and ServiceNow implementations achieving 50%+ reductions in compliance processing time across onboarding and maintenance workflows.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="expertise-icon">📋</span>
+      <h3>Product Ownership &amp; BA Leadership</h3>
+      <p>PSPO II &amp; PSM II certified. Skilled in backlog management, roadmap definition, and cross-functional stakeholder alignment across CXOs, regulators, and global vendors.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="expertise-icon">🚀</span>
+      <h3>Agile &amp; SAFe Delivery</h3>
+      <p>SAFe 6 Practitioner. Proven delivery of complex, multi-vendor programs through Agile and SAFe frameworks — improving time-to-market and release predictability.</p>
+    </div>
+    <div class="expertise-card">
+      <span class="expertise-icon">🌍</span>
+      <h3>Cross-Cultural Leadership</h3>
+      <p>Delivered transformation programs across India, Japan, UK, UAE, and Saudi Arabia — navigating diverse regulatory environments, stakeholder cultures, and risk landscapes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-period">July 2016 — Present</div>
+      <div class="timeline-role">Lead Business Analyst / Product Owner</div>
+      <div class="timeline-company">Tata Consultancy Services · Jeddah, Saudi Arabia</div>
+      <div class="timeline-desc">Leading digital banking and enterprise transformation programs across SNB (NEO &amp; QuickPay modernization, NEO Bulk &amp; QuickPay Bulk Onboarding), Vodafone UK (enterprise customer migration), SBI Remit Japan (10+ bank global remittance hub via SWIFT, Ripple, MoneyGram), Sanofi (ServiceNow ITSM global transformation), and Mashreq Bank. Delivered 40–50% TAT reduction across onboarding and payment processing.</div>
+      <span class="timeline-tag">SNB</span>
+      <span class="timeline-tag">Vodafone UK</span>
+      <span class="timeline-tag">SBI Remit Japan</span>
+      <span class="timeline-tag">Sanofi</span>
+      <span class="timeline-tag">Mashreq</span>
+      <span class="timeline-tag">SAFe 6</span>
+      <span class="timeline-tag">AML/KYC</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">April 2015 — June 2016</div>
+      <div class="timeline-role">Assistant Manager — Digital Banking Transformation</div>
+      <div class="timeline-company">Mashreq Bank · Dubai, UAE</div>
+      <div class="timeline-desc">Delivered 5 flagship programs: NeoBiz Digital Onboarding Platform (end-to-end remote customer acquisition), IBM BPM Implementation (workflow automation), RPA Customer Screening (50%+ compliance time saving), E-KYC Digital Compliance (paperless identity verification), and Automated Account Closure (central bank regulatory compliance). Part of a 10+ year relationship with Mashreq across three engagements.</div>
+      <span class="timeline-tag">NeoBiz</span>
+      <span class="timeline-tag">IBM BPM</span>
+      <span class="timeline-tag">E-KYC</span>
+      <span class="timeline-tag">RPA</span>
+      <span class="timeline-tag">Islamic Banking</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Jan 2010 — March 2015</div>
+      <div class="timeline-role">Assistant Manager Operations → Team Coach Quality → Sr. Associate</div>
+      <div class="timeline-company">WNS Global Services · Gurgaon, India (Mashreq Bank)</div>
+      <div class="timeline-desc">Spent 5+ years managing Mashreq Bank's banking operations end-to-end from India — teams of up to 80 people across SME, Corporate &amp; Investment Banking, Private Banking, MAI, and ATM operations. Built quality frameworks, FMEA processes, capacity planning systems, and QMS infrastructure ensuring 100% SLA compliance.</div>
+      <span class="timeline-tag">Mashreq Bank</span>
+      <span class="timeline-tag">Operations</span>
+      <span class="timeline-tag">Quality Management</span>
+      <span class="timeline-tag">Lean Six Sigma</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Dec 2006 — Jan 2010</div>
+      <div class="timeline-role">Sr. Associate — Retail Liabilities &amp; Investment Operations</div>
+      <div class="timeline-company">Sparsh BPO Services (Barclays Bank PLC) · Delhi, India</div>
+      <div class="timeline-desc">Served Barclays Bank PLC on retail liabilities and investment operations. Handled KYC scrutiny, online account opening across 9 product types, GL transfers, FD operations, Demand Drafts, and UAT for term deposits. Coordinated with MetLife and ICICI for insurance and investments. Career foundation in banking operations and compliance.</div>
+      <span class="timeline-tag">Barclays</span>
+      <span class="timeline-tag">KYC</span>
+      <span class="timeline-tag">Flexcube</span>
+      <span class="timeline-tag">UAT</span>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-period">Jul 2009 — Jan 2010</div>
+      <div class="timeline-role">Process Associate — F&amp;A Accounts Payable</div>
+      <div class="timeline-company">Genpact · Gurgaon, India</div>
+      <div class="timeline-desc">Managed Finance and Accounts Payable for Hospira US — foreign invoice processing, timely vendor payment, and financial reporting. Foundation in global financial operations discipline.</div>
+      <span class="timeline-tag">Finance &amp; Accounts</span>
+      <span class="timeline-tag">Accounts Payable</span>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header reveal">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Credentials</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid reveal">
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">SAFe® Agilist 6.0 — Scaled Agile</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">SAFe® Practitioner 6.0 — Scaled Agile</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Professional Scrum Product Owner™ II (PSPO II) — Scrum.org</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Professional Scrum Master™ II (PSM II) — Scrum.org</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Lean Six Sigma Green Belt</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Design Thinking for Growth &amp; Transformation</div></div>
+    <div class="cert-card"><div class="cert-icon">🏅</div><div class="cert-name">Banking Domain Consultant — INSEAD</div></div>
+    <div class="cert-card"><div class="cert-icon">🎓</div><div class="cert-name">MBA — Finance &amp; International Business · IMT Ghaziabad</div></div>
+    <div class="cert-card"><div class="cert-icon">⭐</div><div class="cert-name">Shining Star — Employee of the Quarter (Multiple)</div></div>
+    <div class="cert-card"><div class="cert-icon">⭐</div><div class="cert-name">Shining Star — BFSI Sector</div></div>
+    <div class="cert-card"><div class="cert-icon">⭐</div><div class="cert-name">Outstanding Contribution Award</div></div>
+    <div class="cert-card"><div class="cert-icon">⭐</div><div class="cert-name">Operational Excellence Award</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Let's Connect</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <h2>Building the future of banking in <em>Saudi Arabia?</em></h2>
+      <p>I am open to senior leadership opportunities in Digital Banking, Payments, Compliance Transformation, and Vision 2030–aligned programs. Let's explore how we can drive measurable impact together.</p>
+    </div>
+    <div class="contact-links reveal">
+      <a href="tel:+966531998459" class="contact-link">
+        <div class="contact-link-icon">📞</div>
+        <div class="contact-link-text"><span class="contact-link-label">Phone</span>+966 531 998 459</div>
+      </a>
+      <a href="/cdn-cgi/l/email-protection#38534d55594a4b50514e0a0a0b08785f55595154165b5755" class="contact-link">
+        <div class="contact-link-icon">✉️</div>
+        <div class="contact-link-text"><span class="contact-link-label">Email</span><span class="__cf_email__" data-cfemail="375c425a5645445f5e410505040777505a565e5b1954585a">[email&#160;protected]</span></div>
+      </a>
+      <a href="https://www.linkedin.com/in/shiv-shanker" target="_blank" class="contact-link">
+        <div class="contact-link-icon">🔗</div>
+        <div class="contact-link-text"><span class="contact-link-label">LinkedIn</span>linkedin.com/in/shiv-shanker</div>
+      </a>
+      <a href="#" class="contact-link">
+        <div class="contact-link-icon">📍</div>
+        <div class="contact-link-text"><span class="contact-link-label">Location</span>Jeddah, Makkah Region, Saudi Arabia</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Shiv Shanker · Digital Banking Transformation Leader</p>
+  <p>Jeddah, KSA · Open to Opportunities</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── DARK / LIGHT TOGGLE ──
+  const html = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const knob = document.getElementById('toggleKnob');
+
+  // Load saved preference
+  const saved = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', saved);
+  knob.textContent = saved === 'dark' ? '🌙' : '☀️';
+
+  toggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    knob.textContent = next === 'dark' ? '🌙' : '☀️';
+    localStorage.setItem('theme', next);
+  });
+
+  // ── SCROLL REVEAL ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+ 
